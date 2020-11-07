@@ -1,0 +1,49 @@
+{% extends 'user_base.html' %} {% load static %} <br />
+{% block title %} My Service {% endblock %} {% block body %}
+<div>
+  <h1 style="color: #280a7c" align="center">My Service</h1>
+</div>
+<form method="POST" action="">
+  {% csrf_token %} {% for service in services %}
+  <table align="center" width="80%">
+    <tr>
+      <td style="width: 25%"><b>Service Id </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_id}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Name </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_name}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Type </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_type}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Product </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_product}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Description </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_description}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>User </b>&nbsp;</td>
+      <td style="width: 45%">{{service.user}}</td>
+    </tr>
+    <tr>
+      <td>
+        <button type="submit" class="btn btn-primary">
+          <a href="/service/send-service/{{service.service_id}}/"
+            >Send Verification</a
+          >
+        </button>
+      </td>
+    </tr>
+
+    <div>
+      <hr />
+    </div>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

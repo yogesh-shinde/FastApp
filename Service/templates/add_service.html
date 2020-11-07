@@ -1,0 +1,18 @@
+{% extends 'user_base.html'%} {% load rest_framework %}
+
+<html>
+  <head>
+    <title>Add Service</title>
+  </head>
+  <body>
+    {% block body %}
+    <h1 style="color: #280a7c"><center>Add Service</center></h1>
+    <hr />
+    <form action="{% url 'add-service' %}" method="POST">
+      {% csrf_token %} {% render_form serializers %}
+
+      <button type="submit" class="btn btn-primary">Add Service</button>
+    </form>
+    {% endblock %}
+  </body>
+</html>

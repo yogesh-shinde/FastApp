@@ -1,0 +1,41 @@
+{% extends 'admin_base.html'%} {% load rest_framework %} {% load static %}
+
+<html>
+  <head>
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    {% block body %}
+
+    <h1 style="color: #280a7c">
+      <center>Admin Login</center>
+    </h1>
+    <hr />
+    <form action="{% url 'admin-login' %}" method="post" novalidate>
+      {% csrf_token %} {% render_form serializer %}
+      <table>
+        <tr>
+          <td>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="margin-right: 50px"
+            >
+              Sign in
+            </button>
+          </td>
+          <td>
+            <button type="submit" class="btn btn-primary">
+              <a href="/admin/register/">Register</a>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    {% endblock %}
+  </body>
+</html>

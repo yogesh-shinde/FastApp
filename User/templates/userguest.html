@@ -1,0 +1,50 @@
+{% extends 'user_guest.html'%} {% load rest_framework %} {% load static %}
+
+<html>
+  <head>
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    {% block body %}
+
+    <h1 style="color: #280a7c">
+      <center>Welcome to Online Service</center>
+    </h1>
+    <hr />
+
+    {% for service in objservice %}
+    <div class="row">
+      <div class="col-sm-3">
+        <form
+          action="/user/send-email/{{service.service_id}}/"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{service.service_name}}</h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Service Id : {{service.service_id}}</p>
+              <p class="card-text">Service Type : {{service.service_type}}</p>
+              <p class="card-text">
+                Service Product : {{service.service_product}}
+              </p>
+              <p class="card-text">
+                Service Description : {{service.service_description}}
+              </p>
+
+              <!-- <button class="btn btn-primary">Contact Me</button> -->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% endfor %} {% endblock %}
+  </body>
+</html>

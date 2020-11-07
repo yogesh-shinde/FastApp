@@ -1,0 +1,12 @@
+1] Superuser: 
+	username:admin
+	password:admin
+
+2]	
+	- First register the user then add service.
+	- Service provider send the request to admin can either accept or cancel the service.
+	- Service accept then client communicate to the service provider. 
+
+3] Run celery module user command
+	celery -A Project worker -l info
+

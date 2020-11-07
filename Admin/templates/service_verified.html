@@ -1,0 +1,39 @@
+{% extends 'admin_base.html' %} {% load static %} <br />
+{% block title %}Product Verified{% endblock %} {% block body %}
+
+<h1 style="color: #280a7c" align="center">Product Successfully Verified</h1>
+
+<form>
+  {% for service in objservice %}
+  <table align="center" width="80%">
+    <tr>
+      <td style="width: 25%"><b>Service Id </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_id}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Name </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_name}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Type </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_type}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Product </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_product}}</td>
+    </tr>
+    <tr>
+      <td style="width: 25%"><b>Service Decription </b>&nbsp;</td>
+      <td style="width: 45%">{{service.service_description}}</td>
+    </tr>
+    <tr>
+      <td><b>User </b> &nbsp;&nbsp</td>
+      <td>{{service.user}}</td>
+    </tr>
+    <div>
+      <hr />
+    </div>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

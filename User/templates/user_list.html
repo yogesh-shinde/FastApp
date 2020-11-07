@@ -1,0 +1,30 @@
+{% extends 'user_base.html'%} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    {% block body %}
+    <h1 style="color: #280a7c" align="center">User List</h1>
+    <hr />
+    <table align="center">
+      <tr>
+        <td>User Id</td>
+        <td>User Name</td>
+        <td>Username</td>
+        <td>Email Id</td>
+        <td>Contact</td>
+      </tr>
+      {% for user in users%}
+      <tr>
+        <td>{{ user.user_id}}</td>
+        <td>{{ user.user_name}}</td>
+        <td>{{user.user_username}}</td>
+        <td>{{user.user_email}}</td>
+        <td>{{user.user_contact }}</td>
+      </tr>
+
+      {% endfor %}
+    </table>
+    {% endblock%}
+  </body>
+</html>
